@@ -26,7 +26,7 @@ cat ~/.terraformrc
 ### Download Zip file and extract to C:/Windows
   - https://releases.hashicorp.com/terraform/1.2.1/terraform_1.2.1_windows_amd64.zip
 
-### Open CMD and Confirm installation
+### Confirm installation
 ```
 terraform -help
 terraform version
@@ -58,7 +58,7 @@ exit
 ## Configure Terraform
 - Login to Azure CLI
 ```
-az login
+az login --use-device-code
 az account list
 az account set --subscription="SUBSCRIPTION_ID"
 ```

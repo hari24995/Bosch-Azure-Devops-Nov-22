@@ -1,5 +1,5 @@
 # Azure CLI Login
-az login
+az login --use-device-code
 
 # List Subscriptions
 az account list
