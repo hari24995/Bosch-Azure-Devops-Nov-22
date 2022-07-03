@@ -1,12 +1,5 @@
 # Input Variables
 
-# Storage account name
-## Note take the output from previous terraform project to specify storage account name here
-variable "sa_name" {
-  description = "Specify name of the Storage account created in previous terraform project"
-  type = string
-}
-
 # 1. Business Unit Name
 variable "business_unit" {
   description = "Business Unit Name"
@@ -41,20 +34,24 @@ variable "virtual_network_name" {
 variable "subnet_name" {
   description = "Virtual Network Subnet Name"
   type = string
+  default = "vmsntf"
 }
 # 7. Public IP Name
 variable "publicip_name" {
   description = "Public IP Name"
   type = string
+  default = "vmpup"
 }
 # 8. Network Interfance
 variable "network_interface_name" {
   description = "Network Interface Name"
   type = string
+  default = "vmni"
 }
 
 # 9. Virtual Machine Name
 variable "virtual_machine_name" {
   description = "Virtual Machine Name"
   type = string
+  default = "vmtfkh"
 }

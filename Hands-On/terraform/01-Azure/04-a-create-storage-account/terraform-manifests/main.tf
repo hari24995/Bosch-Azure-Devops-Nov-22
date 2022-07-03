@@ -3,7 +3,7 @@ resource "random_string" "myrandom" {
   length = 6
   upper = false
   special = false
-  number = false
+  numeric = false
 }
 
 resource "azurerm_resource_group" "my_resourcegroup" {
@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "my_resourcegroup" {
 }
 
 resource "azurerm_storage_account" "my_storageaccount" {
-  name                     = "tfsttbsc-${random_string.myrandom.id}"
+  name                     = "tfsttbsc${random_string.myrandom.id}"
   resource_group_name      = azurerm_resource_group.my_resourcegroup.name
   location                 = azurerm_resource_group.my_resourcegroup.location
   account_tier             = "Standard"

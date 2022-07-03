@@ -1,8 +1,9 @@
 # init terraform's Azure provider (main.tf)
 terraform init
 
+terraform validate
+
+terraform plan
+
 # deploy terraform infra
 terraform apply -auto-approve
-
-# destroy infra
-terraform destroy -auto-approve
