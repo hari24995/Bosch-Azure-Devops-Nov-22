@@ -20,7 +20,7 @@ notepad .\.gitignore
 - Add origin of private git repo and push the code to private git repo
 ```
 git init --initial-branch=am1
-git remote add gitlab-origin git@gitlab.com:atin-trainings/terraform-azure-2-days-may-22.git
+git remote add gitlab-origin git@gitlab.com:atin-trainings/Bosch-Azure-Devops-June-22.git
 git add *
 git add .gitignore .gitignore-github .gitignore-gitlab
 git commit -am "-"
