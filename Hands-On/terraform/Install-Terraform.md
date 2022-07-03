@@ -16,6 +16,7 @@ sudo apt update && sudo apt install terraform
 ### Plugin Caching on Ubuntu
 ```
 mkdir -p /tmp/.terraform.d/plugin-cache
+sudo  chmod -R a+rw /tmp/.terraform.d
 touch ~/.terraformrc
 cat ~/.terraformrc
 echo 'plugin_cache_dir   = "/tmp/.terraform.d/plugin-cache"' > ~/.terraformrc
