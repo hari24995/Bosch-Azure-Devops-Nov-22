@@ -1,7 +1,7 @@
 # Deploy UserManagement Web Application with MySQL Database
 
 
-## Step-01: Introduction
+## Introduction
 - We are going to deploy a **User Management Web Application** which will connect to MySQL Database schema **webappdb** during startup.
 - Then we can test the following APIs
   - Create Users
@@ -16,7 +16,7 @@
 | Init Containers  | 05-UserMgmtWebApp-Deployment.yml  |
 | Load Balancer Service  | 06-UserMgmtWebApp-Service.yml  |
 
-## Step-02: Create following Kubernetes manifests
+## Create following Kubernetes manifests
 
 ### Create User Management Web Application k8s Deployment manifest
 - **Environment Variables**
@@ -37,7 +37,7 @@
 ### Create User Management Web Application Load Balancer Service manifest
 - LoadBalancer Service
 
-## Step-03: Create UserManagement Web Application Deployment & Service
+## Create UserManagement Web Application Deployment & Service
 ```
 # Create Deployment & LoadBalancer Service
 kubectl apply -f kube-manifests/
@@ -71,7 +71,7 @@ curl http://<External-IP-from-get-service-output>
 #Password: password101
 ```
 
-## Step-04: Test User Management Web Application using Browser
+## Test User Management Web Application using Browser
 - Usecase-1: Login, List Users and Logout
   - Username: admin101
   - Password: password101
@@ -84,7 +84,7 @@ curl http://<External-IP-from-get-service-output>
       - Username: admin102
       - Password: password102    
 
-## Step-05: Verify Users in MySQL Database
+## Verify Users in MySQL Database
 ```
 # Connect to MYSQL Database
 kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -pdbpassword11
@@ -97,7 +97,7 @@ mysql> show tables;
 mysql> select * from user;
 ```
 
-## Step-06: Clean-Up
+## Clean-Up
 - Delete all k8s objects created as part of this section
 ```
 # Delete All

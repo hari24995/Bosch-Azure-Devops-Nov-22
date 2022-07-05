@@ -12,22 +12,21 @@ kubectl get pods
 kubectl logs -f <pod-name>
 
 
-# If we have only 1 pod, below commnad works well for getting the logs
-kubectl logs -f $(kubectl get po  | egrep -o 'usermgmt-webapp-[A-Za-z0-9-]+')
-
-
 # Verify sc, pvc, pv
 kubectl get sc,pvc,pv
 
 
-- **Access Application**
+#- **Access Application**
 
 # List Services
-kubectl get svc
+kubectl get svc usermgmt-webapp-service
 
+SVC_PUB_IP=$(kubectl get svc usermgmt-webapp-service -o json | jq .status.loadBalancer.ingress[0].ip)
+SVC_PUB_IP2=${SVC_PUB_IP//\"}
+echo $SVC_PUB_IP2
 
 # Access Application
-curl http://<External-IP-from-get-service-output>
+curl $SVC_PUB_IP2
 #Username: admin101
 #Password: password101
 
@@ -37,14 +36,11 @@ kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h 
 
 
 # Verify usermgmt schema got created which we provided in ConfigMap
-mysql> show schemas;
-mysql> use webappdb;
-mysql> show tables;
-mysql> select * from user;
-
-
-## Step-06: Clean-Up
-- Delete all k8s objects created as part of this section
+show schemas;
+use webappdb;
+show tables;
+select * from user;
+exit
 
 # Delete All
 kubectl delete -f kube-manifests/
@@ -65,5 +61,5 @@ kubectl get pv
 kubectl delete pv <PV-NAME>
 
 
-- Delete Azure Disks
-  - Go to All Services -> Disks -> Select and Delete the Disk
+#- Delete Azure Disks
+#  - Go to All Services -> Disks -> Select and Delete the Disk

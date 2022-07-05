@@ -1,6 +1,6 @@
 # Ingress - Basics
 
-## Step-01: Introduction
+## Introduction
 
 # Get the resource group name of the AKS cluster
 az aks show --resource-group aks-rg1 --name aksdemo1 --query nodeResourceGroup -o tsv
@@ -84,12 +84,12 @@ curl http://<Public-IP-created-for-Ingress>
 - Verify Load Balancer on Azure Mgmt Console
   - Primarily refer Settings -> Frontend IP Configuration
 
-## Step-04: Review Application k8s manifests
+## Review Application k8s manifests
 - 01-NginxApp1-Deployment.yml
 - 02-NginxApp1-ClusterIP-Service.yml
 - 03-Ingress-Basic.yml
 
-## Step-05: Deploy Application k8s manifests and verify
+## Deploy Application k8s manifests and verify
 
 # Deploy
 kubectl apply -f kube-manifests/
@@ -121,7 +121,7 @@ kubectl get pods -n ingress-basic
 kubectl logs -f <pod-name> -n ingress-basic
 
 
-## Step-06: Clean-Up Apps
+## Clean-Up Apps
 
 # Delete Apps
 kubectl delete -f kube-manifests/

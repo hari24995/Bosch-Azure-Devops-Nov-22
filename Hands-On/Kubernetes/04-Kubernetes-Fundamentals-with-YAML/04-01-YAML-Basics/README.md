@@ -1,6 +1,6 @@
 # YAML Basics
 
-## Step-01: Comments & Key Value Pairs
+## Comments & Key Value Pairs
 - Space after colon is mandatory to differentiate key and value
 ```yml
 # Defining simple key value pairs
@@ -9,7 +9,7 @@ age: 39
 city: NCR
 ```
 
-## Step-02: Dictionary / Map
+## Dictionary / Map
 - Set of properties grouped together after an item
 - Equal amount of blank space required for all the items under a dictionary
 ```yml
@@ -19,7 +19,7 @@ person:
   city: NCR
 ```
 
-## Step-03: Array / Lists
+## Array / Lists
 - Dash indicates an element of an array
 ```yml
 person: # Dictionary
@@ -32,7 +32,7 @@ person: # Dictionary
   hobbies: [cycling, cooking]   # List with a differnt notation  
 ```
 
-## Step-04: Multiple Lists
+## Multiple Lists
 - Dash indicates an element of an array
 ```yml
 person: # Dictionary
@@ -51,7 +51,7 @@ person: # Dictionary
 ```
 
 
-## Step-05: Sample Pod Tempalte for Reference
+## Sample Pod Tempalte for Reference
 ```yml
 apiVersion: v1 # String
 kind: Pod  # String

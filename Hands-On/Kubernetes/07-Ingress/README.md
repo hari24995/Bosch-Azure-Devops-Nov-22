@@ -1,6 +1,6 @@
 # Ingress - Basics
 
-## Step-01: Introduction
+## Introduction
 
 ### Ingress Basic Architecture
 
@@ -12,7 +12,7 @@
 - Deploy a simple Nginx App1 with Ingress manifest and test it
 - Clean-Up or delete application after testing
 
-## Step-02: Create Static Public IP
+## Create Static Public IP
 ```
 # Get the resource group name of the AKS cluster
 az aks show --resource-group aks-rg1 --name aksdemo1 --query nodeResourceGroup -o tsv
@@ -31,7 +31,7 @@ az network public-ip create --resource-group MC_aks-rg1_aksdemo1_centralus --nam
 #52.154.156.139
 ```
 
-## Step-03: Install Ingress Controller
+## Install Ingress Controller
 ```
 # Install Helm3 (if not installed)
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
@@ -90,12 +90,12 @@ curl http://<Public-IP-created-for-Ingress>
 - Verify Load Balancer on Azure Mgmt Console
   - Primarily refer Settings -> Frontend IP Configuration
 
-## Step-04: Review Application k8s manifests
+## Review Application k8s manifests
 - 01-NginxApp1-Deployment.yml
 - 02-NginxApp1-ClusterIP-Service.yml
 - 03-Ingress-Basic.yml
 
-## Step-05: Deploy Application k8s manifests and verify
+## Deploy Application k8s manifests and verify
 ```
 # Deploy
 kubectl apply -f kube-manifests/
@@ -127,7 +127,7 @@ kubectl get pods -n ingress-basic
 kubectl logs -f <pod-name> -n ingress-basic
 ```
 
-## Step-06: Clean-Up Apps
+## Clean-Up Apps
 ```
 # Delete Apps
 kubectl delete -f kube-manifests/

@@ -1,6 +1,6 @@
 # AKS Storage -  Storage Classes, Persistent Volume Claims
 
-## Step-01: Introduction
+## Introduction
 - We are going to create a MySQL Database with persistence storage using **Azure Disks**
 
 | Kubernetes Object  | YAML File |
@@ -11,7 +11,7 @@
 | Deployment, Environment Variables, Volumes, VolumeMounts  | 04-mysql-deployment.yml  |
 | ClusterIP Service  | 05-mysql-clusterip-service.yml  |
 
-## Step-02: Create following Kubernetes manifests
+## Create following Kubernetes manifests
 ### Create Storage Class manifest
 - https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode
 - https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk
@@ -48,7 +48,7 @@ kubectl get pv
 ### Create MySQL ClusterIP Service manifest
 - At any point of time we are going to have only one mysql pod in this design so `ClusterIP: None` will use the `Pod IP Address` instead of creating or allocating a separate IP for `MySQL Cluster IP service`.   
 
-## Step-03: Create MySQL Database with all above manifests
+## Create MySQL Database with all above manifests
 ```
 # Create MySQL Database
 kubectl apply -f kube-manifests/
@@ -74,7 +74,7 @@ kubectl get pods
 kubectl get pods -l app=mysql
 ```
 
-## Step-04: Connect to MySQL Database
+## Connect to MySQL Database
 ```
 # Connect to MYSQL Database
 kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -pdbpassword11
@@ -84,13 +84,13 @@ kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h 
 mysql> show schemas;
 ```
 
-## Step-05: Clean-Up
+## Clean-Up
 ```
 # Delete All
 kubectl delete -f kube-manifests/
 ```
 
-## Step-06: Delete PV exclusively - It exists due to retain policy
+## Delete PV exclusively - It exists due to retain policy
 ```
 # List PV
 kubectl get pv
@@ -104,7 +104,7 @@ kubectl delete pv <PV-NAME>
 Go to All Services -> Disks -> Select and Delete the Disk
 ```
 
-## Step-07: References & Storage Best Practices
+## References & Storage Best Practices
 - We need to discuss references exclusively here.
 - https://docs.microsoft.com/en-us/azure/aks/concepts-storage
 - https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-storage

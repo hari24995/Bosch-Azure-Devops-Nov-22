@@ -4,7 +4,7 @@ description: Understand how to access multiple Azure Kubernetes AKS Clusters usi
 ---
 # Azure AKS Cluster Access with Multiple Clusters
 
-## Step-01: Introduction
+## Introduction
 - Azure AKS Cluster Access
 - Create Clusters using Command Line
 - Understand kube config file $HOME/.kube/config
@@ -13,7 +13,7 @@ description: Understand how to access multiple Azure Kubernetes AKS Clusters usi
   - kubectl config current-context
   - kubectl config use-context <context-name>
 
-## Step-02: Create AKSDEMO3 cluster using AKS CLI
+## Create AKSDEMO3 cluster using AKS CLI
 - Generates SSH Keys with option **--generate-ssh-keys**
 - They will be stored in **$HOME/.ssh** folder in your local desktop
 - Backup them if required
@@ -42,7 +42,7 @@ cp id_rsa* BACKUP-SSH-KEYS-AKSDEMO-Clusters
 ls -lrt BACKUP-SSH-KEYS-AKSDEMO-Clusters
 ```
 
-## Step-03: Create AKSDEMO4 cluster using AKS CLI
+## Create AKSDEMO4 cluster using AKS CLI
 - Use same SSH keys for AKSDEMO4 cluster using **--ssh-key-value**
 ```
 # Create AKSDEMO4 Cluster
@@ -56,7 +56,7 @@ az aks create --name aksdemo4 \
               --ssh-key-value /Users/atingupta2005/.ssh/id_rsa.pub              
 ```
 
-## Step-04: Configure AKSDEMO3 Cluster Access for kubectl
+## Configure AKSDEMO3 Cluster Access for kubectl
 - Understand commands
   - kubectl config view
   - kubectl config current-context
@@ -91,7 +91,7 @@ kubectl cluster-info
 kubectl config current-context
 ```
 
-## Step-05: Configure AKSDEMO4 Cluster Access for kubectl
+## Configure AKSDEMO4 Cluster Access for kubectl
 ```
 # Configure AKSDEMO4 Cluster Access for kubectl
 az aks get-credentials --resource-group aks-rg4 --name aksdemo4
@@ -109,7 +109,7 @@ kubectl cluster-info
 kubectl config view
 ```
 
-## Step-06: Switch Contexts between clusters
+## Switch Contexts between clusters
 - Understand the kubectl config command **use-context**
 ```
 # View the current context for kubectl

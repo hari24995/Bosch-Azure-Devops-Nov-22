@@ -4,12 +4,12 @@ description: Restrict Access to k8s resources using Kubernetes RBAC Cluster Role
 ---
 # K8S RBAC Cluster Role & Role Binding with AD on AKS
 
-## Step-01: Introduction
+## Introduction
 - AKS can be configured to use Azure AD for Authentication which we have seen in our previous section
 - In addition, we can also configure Kubernetes role-based access control (RBAC) to limit access to cluster resources based a user's identity or group membership.
 - Understand about Kubernetes RBAC **Cluster Role & Cluster Role Binding**
 
-## Step-02: Create AD Group, Role Assignment and User
+## Create AD Group, Role Assignment and User
 
 # Get Azure AKS Cluster Id
 AKS_CLUSTER_ID=$(az aks show --resource-group aks-rg3 --name aksdemo3 --query id -o tsv)
@@ -50,13 +50,13 @@ echo $AKS_READONLY_USER_OBJECT_ID
 az ad group member add --group aksreadonly --member-id $AKS_READONLY_USER_OBJECT_ID
 
 
-## Step-03: Test aksreadonly User Authentication to Portal
+## Test aksreadonly User Authentication to Portal
 - URL: https://portal.azure.com
 - Username: aksread1@atingupta2005gmail.onmicrosoft.com
 - Password: @AKSDemo123
 
 
-## Step-04: Review Kubernetes RBAC ClusterRole & ClusterRoleBinding
+## Review Kubernetes RBAC ClusterRole & ClusterRoleBinding
 ### Kubernetes RBAC Role for aksreadonly User Access
 - **File Name:** ClusterRole-ReadOnlyAccess.yaml
 yaml
@@ -98,7 +98,7 @@ subjects:
   name: "e808215d-d159-49ba-8bb6-9661ba478842"   
 
 
-## Step-05: Create Kubernetes RBAC ClusterRole & ClusterRoleBinding
+## Create Kubernetes RBAC ClusterRole & ClusterRoleBinding
 
 # As AKS Cluster Admin (--admin)
 az aks get-credentials --resource-group aks-rg3 --name aksdemo3 --admin
@@ -115,7 +115,7 @@ kubectl get clusterrole
 kubectl get clusterrolebinding
 
 
-## Step-06: Access AKS Cluster
+## Access AKS Cluster
 
 # Overwrite kubectl credentials
 az aks get-credentials --resource-group aks-rg3 --name aksdemo3 --overwrite-existing
@@ -137,7 +137,7 @@ kubectl get nodes
 
 
 
-## Step-07: Create any resource on k8s and observe message
+## Create any resource on k8s and observe message
 - Create a namespace and see what happems
 - We should see forbidder error as this user (aksread1) has only read access to cluster. This use cannot create k8s resources
 
@@ -157,7 +157,7 @@ ating-ubuntu-mini:21-04-Kubernetes-RBAC-ClusterRole-ClusterRoleBinding atingupta
 
 
 
-## Step-08: Clean-Up
+## Clean-Up
 - Clean-Up Clusters Delete Clusters aksdemo3, aksdemo4
   - Go to All Services -> Resource Groups -> Delete Resource group  aks-rg3
   - Go to All Services -> Resource Groups -> Delete Resource group  aks-rg4

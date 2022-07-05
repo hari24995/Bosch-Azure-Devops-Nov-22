@@ -1,10 +1,10 @@
 # Kubernetes - Secrets
 
-## Step-01: Introduction
+## Introduction
 - Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 - Storing confidential information in a Secret is safer and more flexible than putting it directly in a Pod definition or in a container image.
 
-## Step-02: Create Secret for MySQL DB Password
+## Create Secret for MySQL DB Password
 ###
 ```
 # Mac
@@ -24,7 +24,7 @@ data:
   # Output of echo -n 'Redhat1449' | base64
   db-password: ZGJwYXNzd29yZDEx
 ```
-## Step-03: Update secret in MySQL Deployment for DB Password
+## Update secret in MySQL Deployment for DB Password
 ```yml
           env:
             - name: MYSQL_ROOT_PASSWORD
@@ -34,7 +34,7 @@ data:
                   key: db-password
 ```
 
-## Step-04: Update secret in UWA Deployment
+## Update secret in UWA Deployment
 - UMS means User Management Microservice
 ```yml
             - name: DB_PASSWORD
@@ -44,7 +44,7 @@ data:
                   key: db-password
 ```
 
-## Step-05: Create & Test
+## Create & Test
 ```
 # Create All Objects
 kubectl apply -f kube-manifests/
@@ -64,7 +64,7 @@ curl http://<External-IP-from-get-service-output>
 #Password: password101
 ```
 
-## Step-06: Clean-Up
+## Clean-Up
 - Delete all k8s objects created as part of this section
 ```
 # Delete All
