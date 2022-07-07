@@ -7,7 +7,7 @@
 ## Create Secret for MySQL DB Password
 ###
 ```
-# Mac
+# Linux
 echo -n 'dbpassword11' | base64
 # URL: https://www.base64encode.org
 ```

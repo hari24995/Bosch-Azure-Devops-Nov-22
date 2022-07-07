@@ -3,18 +3,8 @@
 ## Introduction
 - We are going to create a MySQL Database with persistence storage using **Azure Disks**
 
-| Kubernetes Object  | YAML File |
-| ------------- | ------------- |
-| Storage Class  | 01-storage-class.yml |
-| Persistent Volume Claim | 02-persistent-volume-claim.yml   |
-| Config Map  | 03-UserManagement-ConfigMap.yml  |
-| Deployment, Environment Variables, Volumes, VolumeMounts  | 04-mysql-deployment.yml  |
-| ClusterIP Service  | 05-mysql-clusterip-service.yml  |
-
 ## Create following Kubernetes manifests
 ### Create Storage Class manifest
-- https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode
-- https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk
 ```
 # Create Storage Class
 kubectl apply -f kube-manifests/01-storage-class.yml
@@ -103,12 +93,3 @@ kubectl delete pv <PV-NAME>
 # Delete Azure Disks
 Go to All Services -> Disks -> Select and Delete the Disk
 ```
-
-## References & Storage Best Practices
-- We need to discuss references exclusively here.
-- https://docs.microsoft.com/en-us/azure/aks/concepts-storage
-- https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-storage
-- https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv
-- https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-- https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-disk
-- https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#storageclass-v1-storage-k8s-io

@@ -8,31 +8,10 @@
   - List Users
   - Delete User
 
-
-| Kubernetes Concepts  | YAML File |
-| ------------- | ------------- |
-| Deployment  | 05-UserMgmtWebApp-Deployment.yml  |
-| Environment Variables  | 05-UserMgmtWebApp-Deployment.yml  |
-| Init Containers  | 05-UserMgmtWebApp-Deployment.yml  |
-| Load Balancer Service  | 06-UserMgmtWebApp-Service.yml  |
-
 ## Create following Kubernetes manifests
 
 ### Create User Management Web Application k8s Deployment manifest
 - **Environment Variables**
-
-| Key Name  | Value |
-| ------------- | ------------- |
-| DB_HOSTNAME  | mysql |
-| DB_PORT  | 3306  |
-| DB_NAME  | webappdb  |
-| DB_USERNAME  | root  |
-| DB_PASSWORD | dbpassword11  |  
-
-- **Problem Observation:**
-  - If we deploy all manifests at a time, by the time mysql is ready our `User Management Web Application` pod will be throwing error due to unavailability of Database.
-  - To avoid such situations, we can apply `initContainers` concept to our User management Web Application `Deployment manifest`.
-  - We will see that in our next section but for now lets continue to test the application
 
 ### Create User Management Web Application Load Balancer Service manifest
 - LoadBalancer Service
@@ -70,19 +49,6 @@ curl http://<External-IP-from-get-service-output>
 #Username: admin101
 #Password: password101
 ```
-
-## Test User Management Web Application using Browser
-- Usecase-1: Login, List Users and Logout
-  - Username: admin101
-  - Password: password101
-- Usecase-2: Login, Create New User and Logout and login with new user
-  - Username: admin101
-  - Password: password101
-  - Create New User
-    - User Details: admin102, password102, fname102, lname102, admin102@gmail.com, ssn102
-  - Login with newly user and list users
-      - Username: admin102
-      - Password: password102    
 
 ## Verify Users in MySQL Database
 ```
