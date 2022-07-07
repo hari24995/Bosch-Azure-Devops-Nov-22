@@ -3,6 +3,9 @@ AKS_RG="rgaksatin"
 
 #- Login to Azure (If Required)
 az login --use-device-code
+# Login ID u1@ag9465462gmail.onmicrosoft.com
+# Password: Azure Regular Password
+
 az account list
 az account set --subscription "SUBSCRIPTION_ID"
 
