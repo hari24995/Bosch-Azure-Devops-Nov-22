@@ -11,5 +11,11 @@ az aks get-credentials --resource-group $AKS_RG --name $AKS_NAME --admin --overw
 
 #sudo snap install kubectl --classic
 
+kubectl create namespace "ns-$USER"
+
+kubectl config set-context --current --namespace="ns-$USER"
+
+kubectl get namespaces
+
 # Get all my pods
 kubectl get pods
