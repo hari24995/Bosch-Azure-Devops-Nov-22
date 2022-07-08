@@ -13,7 +13,7 @@ CLSTR_RG_NAME2=${CLSTR_RG_NAME//\"}
 echo $CLSTR_RG_NAME2
 
 # Create Public IP
-INGRESS_PUB_IP=$(az network public-ip create --resource-group $CLSTR_RG_NAME2 --name myAKSPublicIPForIngress --sku Basic --allocation-method static --query publicIp.ipAddress -o json)
+INGRESS_PUB_IP=$(az network public-ip create --resource-group $CLSTR_RG_NAME2 --name myAKSPublicIPForIngress --sku Standard --allocation-method static --query publicIp.ipAddress -o json)
 INGRESS_PUB_IP2=${INGRESS_PUB_IP//\"}
 echo $INGRESS_PUB_IP2
 
@@ -28,7 +28,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 
 # Create a namespace for your ingress resources
-kubectl delete namespace ingress-basic
+#kubectl delete namespace ingress-basic
 kubectl create namespace ingress-basic
 
 # Add the official stable repository
@@ -36,9 +36,6 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 #helm repo add stable https://charts.helm.sh/stable/
 helm repo update
-
-#  Customizing the Chart Before Installing.
-helm show values ingress-nginx/ingress-nginx
 
 # If required
 #helm uninstall ingress-nginx  --namespace ingress-basic
@@ -68,14 +65,11 @@ LOAD_BALANCER_IP=$(kubectl get service ingress-nginx-controller --namespace ingr
 LOAD_BALANCER_IP2=${LOAD_BALANCER_IP//\"}
 echo $LOAD_BALANCER_IP2
 
-curl http://<Public-IP-created-for-Ingress>
+echo http://$LOAD_BALANCER_IP2
 curl $LOAD_BALANCER_IP2
 
 # Output should be
 # 404 Not Found from Nginx
-
-#- Verify Load Balancer on Azure Mgmt Console
-#  - Primarily refer Settings -> Frontend IP Configuration
 
 ## Review Application k8s manifests
 #- 01-NginxApp1-Deployment.yml
@@ -112,6 +106,7 @@ kubectl get pods -n ingress-basic
 
 
 kubectl logs -f <pod-name> -n ingress-basic
+kubectl logs -f ingress-nginx-controller-7fbcf5c5f6-6ptp6 -n ingress-basic
 
 
 ## Clean-Up Apps
