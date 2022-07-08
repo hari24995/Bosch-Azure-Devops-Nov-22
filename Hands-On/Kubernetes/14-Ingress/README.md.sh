@@ -33,12 +33,9 @@ kubectl create namespace ingress-basic
 
 # Add the official stable repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-helm repo add stable https://charts.helm.sh/stable/
-
-
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+#helm repo add stable https://charts.helm.sh/stable/
 helm repo update
-
 
 #  Customizing the Chart Before Installing.
 helm show values ingress-nginx/ingress-nginx
@@ -63,17 +60,14 @@ kubectl describe service -l app.kubernetes.io/name=ingress-nginx --namespace ing
 
 # List Pods
 kubectl get pods -n ingress-basic
-
-
 kubectl get all -n ingress-basic
-
 kubectl get service ingress-nginx-controller --namespace ingress-basic
 
+# Access Public IP
 LOAD_BALANCER_IP=$(kubectl get service ingress-nginx-controller --namespace ingress-basic -o json | jq .spec.loadBalancerIP)
 LOAD_BALANCER_IP2=${LOAD_BALANCER_IP//\"}
 echo $LOAD_BALANCER_IP2
 
-# Access Public IP
 curl http://<Public-IP-created-for-Ingress>
 curl $LOAD_BALANCER_IP2
 

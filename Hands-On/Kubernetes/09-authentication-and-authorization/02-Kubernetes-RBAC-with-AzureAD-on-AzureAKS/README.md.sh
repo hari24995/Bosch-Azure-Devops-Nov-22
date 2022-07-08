@@ -46,13 +46,10 @@ curl http://$QA_PUBLIC_IP2/app1/index.html
 
 
 ## Create AD Group, Role Assignment and User for Dev
-
 # Get Azure AKS Cluster Id
 AKS_CLUSTER_ID=$(az aks show --resource-group $AKS_RG --name $AKS_NAME --query id -o tsv)
 
-
 echo $AKS_CLUSTER_ID
-
 
 # Create Azure AD Group
 az ad group create --display-name "$USER-devaksteam" --mail-nickname "$USER-devaksteam"
@@ -60,9 +57,8 @@ DEV_AKS_TEAM_GRP_ID=$(az ad group show -g "$USER-devaksteam" -o json | jq .id)
 DEV_AKS_TEAM_GRP_ID2=${DEV_AKS_TEAM_GRP_ID//\"}
 echo $DEV_AKS_TEAM_GRP_ID2
 
-# Create Role Assignment
+# Create Role Assignment: Give
 az role assignment create --assignee $DEV_AKS_TEAM_GRP_ID2 --role "Azure Kubernetes Service Cluster User Role" --scope $AKS_CLUSTER_ID
-
 
 # Create Dev User
 az ad user create --display-name "$USER-AKS Dev1" --user-principal-name "$USER-aksdev1@ag9465462gmail.onmicrosoft.com" --password @AKSDemo123

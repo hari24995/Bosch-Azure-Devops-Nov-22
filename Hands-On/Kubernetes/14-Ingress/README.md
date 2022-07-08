@@ -3,6 +3,7 @@
 ## Introduction
 
 ### Ingress Basic Architecture
+![image info](./resources/aks-ingress-architecture.png)
 
 ### What are we going to learn?
 - We are going to create a **Static Public IP** for Ingress in Azure AKS

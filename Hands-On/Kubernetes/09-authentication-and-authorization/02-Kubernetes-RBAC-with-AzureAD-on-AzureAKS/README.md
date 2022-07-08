@@ -1,10 +1,14 @@
 # Kubernetes RBAC Role & Role Binding with Azure AD on AKS
 
 ## Introduction
-- AKS can be configured to use Azure AD for Authentication which we have seen in our previous section
+- AKS can be configured to use Azure AD for Authentication
 - In addition, we can also configure Kubernetes role-based access control (RBAC) to limit access to cluster resources based a user's identity or group membership.
-- Understand about Kubernetes RBAC Role & Role Binding
 
+![image info](./resources/1-azure-kubernetes-service-RBAC-2.png)
+![image info](./resources/2-azure-kubernetes-service-RBAC-1.png)
+![image info](./resources/3-azure-kubernetes-service-RBAC-Role-RoleBinding-1.png)
+![image info](./resources/4-azure-kubernetes-service-RBAC-Role-RoleBinding-2.png)
+![image info](./resources/5-azure-kubernetes-service-RBAC-Role-RoleBinding-3.png)
 
 ## Create a Namespace Dev, QA and Deploy Sample Application
 ```
