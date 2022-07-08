@@ -76,7 +76,7 @@ spec:
 
 - Create NetworkPolicy
 ```
-kubectl apply -f api-allow.yaml
+kubectl apply -f kube-manifests/
 ```
 
 - Test the Network Policy is blocking the traffic, by running a Pod without the app=bookstore label:
