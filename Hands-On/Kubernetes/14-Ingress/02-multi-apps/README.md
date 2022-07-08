@@ -50,7 +50,7 @@ Password: password101
 ## Step-06: Clean-Up Applications
 ```
 # Delete Apps
-kubectl delete -f kube-manifests/
+kubectl delete -R -f kube-manifests/
 
 # Delete Azure Disk created for Usermgmt Web App
 Go to All Services -> Azure Disks -> Delete disk
@@ -58,4 +58,3 @@ Go to All Services -> Azure Disks -> Delete disk
 
 ## Ingress Annotation Reference
 - https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
-

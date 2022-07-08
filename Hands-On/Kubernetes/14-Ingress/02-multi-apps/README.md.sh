@@ -25,4 +25,4 @@ curl http://$LOAD_BALANCER_IP2/app1/index.html
 curl http://$LOAD_BALANCER_IP2/app2/index.html
 
 # Delete Apps
-kubectl delete -f kube-manifests/
+kubectl delete -R -f kube-manifests/
