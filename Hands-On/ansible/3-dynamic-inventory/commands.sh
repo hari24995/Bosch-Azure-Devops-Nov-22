@@ -1,5 +1,6 @@
-sudo apt install python3-pip
-pip install azure-cli
+pip install ansible[azure]
+sudo apt install -y sshpass
+
 ansible all -m ping -i inventory.azure_rm.yml
 
 ## Running Playbook
