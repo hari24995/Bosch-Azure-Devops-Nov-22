@@ -32,7 +32,7 @@ ls -l
 id
 
 # The output is similar to this:
-uid=1000 gid=3000 groups=2000
+## uid=1000 gid=3000 groups=2000
 
 # From the output, you can see that gid is 3000 which is same as the runAsGroup field
 # If the runAsGroup was omitted, the gid would remain as 0 (root) and the process will be able to interact with files that are owned by the root(0) group and groups that have the required group permissions for the root (0) group.

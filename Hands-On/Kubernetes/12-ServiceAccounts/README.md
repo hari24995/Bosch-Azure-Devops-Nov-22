@@ -53,22 +53,7 @@ kubectl exec -it debug /bin/bash -n webapps
 ```
 
 - Now, you should be able to list pods and other resources in webapps namespace. You cannot list the pods in other namespaces are this role is specific to webapps namespace.
-- If you deploy a pod without the service account and list the pods, you will get the following error.
-```
-Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:webapps:default" cannot list resource "pods" in API group "" in the namespace "webapps"
-```
 
-- The default service account that gets attached to pods doesn’t have any API access to resources.
-
-## Using Service Account with Kubernetes Cronjob
-- Here is an example of Kubernetes Cronjob with a service account.
-```
-kubectl apply -f kube-manifests/cron-job.yaml
-```
-
-
-## Using Service Account With Kubernetes Deployment
-- Here is an example of a Kubernetes deployment with a service account
-```
-kubectl apply -f kube-manifests/deployment.yaml
-```
+## Cleanup
+kubectl delete -f kube-manifests/
+kubectl delete ns webapps
