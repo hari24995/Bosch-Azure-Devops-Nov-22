@@ -1,14 +1,4 @@
-## Installation:
-```
-sudo apt update
-sudo apt -y install software-properties-common
-sudo apt-add-repository ppa:ansible/ansible
-```
-
-```
-sudo apt update
-sudo apt -y install ansible
-```
+source ~/python_venv/bin/activate
 
 ## Generate SSH Keys
 ```
@@ -18,7 +8,7 @@ chmod 0600 ~/.ssh/ansible_id_rsa
 
 ## Move to Ansible folder
 ```
-cd ~/Bosch-Azure-Devops-June-22/Hands-On/ansible
+cd ~/Bosch-Azure-Devops-June-22/Hands-On/ansible/1-playbook
 ```
 
 ## Update Hosts

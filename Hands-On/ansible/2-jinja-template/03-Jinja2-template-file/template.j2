@@ -1,0 +1,46 @@
+---=== Jinja2 template if statement ===---
+
+{% if ansible_hostname == "ansnode2" -%}
+    This is {{ ansible_hostname }} host
+{% endif %}
+
+--=== Ansible Jinja2 if elif statement ===---
+
+{% if ansible_hostname == "ansnode2" -%}
+     This is {{ ansible_hostname }} host
+{% elif ansible_hostname == "ansnode3" -%}
+     This is {{ ansible_hostname }} host with modifications
+{% endif %}
+
+--=== Ansible Jinja2 if elif else statement ===---
+
+{% if ansible_hostname == "ansnode2" -%}
+      This is {{ ansible_hostname }} host
+{% elif ansible_hostname == "ansnode3" -%}
+      This is {{ ansible_hostname }}  host with modifications
+{% else -%}
+      This is default {{ ansible_hostname }} host
+{% endif %}
+
+--=== Ansible Jinja2 if variable is defined ( where variable is not defined)  ===---
+
+{% if example_variable is defined -%}
+      example_variable is defined
+{% else -%}
+      example_variable is not defined
+{% endif %}
+
+--=== Ansible Jinja2 if variable is defined ( where variable is defined)  ===---
+
+{% set example_variable = 'defined' -%}
+     {% if example_variable is defined -%}
+          example_variable is defined
+     {% else -%}
+          example_variable is not defined
+{% endif %}
+
+--=== Ansible Jinja2 for loop  ===---
+
+{% for entry in ansible_all_ipv4_addresses -%}
+     IP Address entry {{ loop.index }} - {{ entry }}
+{% endfor %}

@@ -1,3 +1,5 @@
+source ~/python_venv/bin/activate
+
 sudo apt-get update
 sudo apt install -y packer
 sudo apt install -y jq

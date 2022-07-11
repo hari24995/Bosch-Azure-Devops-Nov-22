@@ -8,6 +8,7 @@ az aks create --resource-group $AKS_RG --name $AKS_NAME --node-count 1  --load-b
 
 az aks get-credentials --resource-group $AKS_RG --name $AKS_NAME
 
+sudo snap install kubectl --classic
 kubectl get nodes -o wide
 
 

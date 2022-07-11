@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-azurestorage-test
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        app: azuretest
+  template:
+    metadata:
+      name: azuretest-pod
+      labels:
+        app: azuretest
+    spec:
+      containers:
+      - name: azuretest
+        image: atingupta2005/kubenginx:3.0.0
+        ports:
+          - containerPort: 80
+        volumeMounts:
+        - name: azurefileshare
+          mountPath: /myshare
+      imagePullSecrets:
+      - name: your-pull-secret-if-you-have-one
+      volumes:
+      - name: azurefileshare
+        azureFile:
+          secretName: storage-secret
+          shareName: myshare
+          readOnly: false

@@ -3,7 +3,14 @@
 https://aka.ms/installazurecliwindows
 ```
 
-# Install the Azure CLI on Linux
+# Install using python PIP (Recommended)
+sudo apt install -y python3-virtualenv
+virtualenv ~/python_venv
+source ~/python_venv/bin/activate
+pip install azure-cli
+
+
+# Install the Azure CLI on Linux using Script (Not Recommended)
 ```
 curl -L https://aka.ms/InstallAzureCli | bash
 ```

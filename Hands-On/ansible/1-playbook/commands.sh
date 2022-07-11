@@ -1,3 +1,5 @@
+source ~/python_venv/bin/activate
+
 ## Validate and obtain information about your Ansible inventory
 ansible-inventory -i hosts --list
 

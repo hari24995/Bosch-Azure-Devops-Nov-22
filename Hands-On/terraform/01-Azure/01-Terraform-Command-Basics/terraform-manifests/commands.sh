@@ -1,3 +1,5 @@
+source ~/python_venv/bin/activate
+
 # Azure CLI Login
 az login --use-device-code
 

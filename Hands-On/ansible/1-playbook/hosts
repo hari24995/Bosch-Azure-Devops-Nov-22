@@ -1,0 +1,9 @@
+[demoservers]
+vm1 ansible_host=20.119.60.195
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=u50
+ansible_ssh_private_key_file = ~/.ssh/ansible_id_rsa
+ansible_connection=ssh
+ansible_port=22

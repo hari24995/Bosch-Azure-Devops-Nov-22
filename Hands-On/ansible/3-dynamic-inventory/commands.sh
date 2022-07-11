@@ -1,5 +1,5 @@
-sudo apt install python3-pip
-pip install azure-cli
+source ~/python_venv/bin/activate
+
 ansible all -m ping -i inventory.azure_rm.yml
 
 ## Running Playbook
