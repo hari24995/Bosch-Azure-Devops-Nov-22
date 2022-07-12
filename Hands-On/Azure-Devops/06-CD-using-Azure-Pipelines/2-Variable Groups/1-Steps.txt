@@ -15,6 +15,6 @@ To use variables across pipelines
 13. Open Key Vault, Refresh and check the access policy is added
 14. Open Library and add variable and chose secret from key vault
 15. Save
-16. Edit the pipeline and code from pipeline-variable-group-keyvault.txt to specify resource group name
+16. Edit the pipeline to specify correct subscription and resource group
 17. Save and run pipeline
 18. Inspect Job logs output
