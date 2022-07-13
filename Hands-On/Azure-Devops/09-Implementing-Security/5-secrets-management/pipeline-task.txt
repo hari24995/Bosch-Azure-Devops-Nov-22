@@ -1,0 +1,19 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: DownloadSecureFile@1
+  name: caCertificate
+  inputs:
+    secureFile: 'PSI.txt'
+
+- script: |
+    echo $(caCertificate.secureFilePath)

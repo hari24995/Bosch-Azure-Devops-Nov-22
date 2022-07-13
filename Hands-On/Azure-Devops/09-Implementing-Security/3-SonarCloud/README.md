@@ -9,7 +9,7 @@
   - Open "My Account" from top right
   - Open Security Tab and Generate token
   - Copy this token in notepad. We will need it later
-
+    - 430e242c96cde3b85006ee862028d780ca5472b5
 ### Important Notes
 - We need to make sure that the Devops Project which we need to analyze in SonarCloud should be public
 - Free version of SonarCloud clooud has restriction to only work with public projects
