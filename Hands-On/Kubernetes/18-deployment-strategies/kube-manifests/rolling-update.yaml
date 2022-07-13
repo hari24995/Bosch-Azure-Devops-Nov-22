@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rollingupdate-strategy
+  labels: # Dictionary
+    app: rollingupdate-strategy
+spec:
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: rollingupdate-strategy
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rollingupdate-strategy
+    spec:
+      containers:
+        - name: rollingupdate-strategy
+          #image: nginx
+          image: nginx:stable
+          #image: nginx:mainline
