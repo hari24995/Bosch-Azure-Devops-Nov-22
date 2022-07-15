@@ -67,5 +67,4 @@ https://github.com/atingupta2005/Bosch-github-actions-training/tree/the-if-key-a
 - Refer: https://github.com/atingupta2005/Bosch-github-actions-training/settings/actions/runners
 
 ## Autoscaling with self-hosted runners
-- You can automatically increase or decrease the number of self-hosted runners in your environment
--
+- Refer: autoscaling-with-self-hosted-runners

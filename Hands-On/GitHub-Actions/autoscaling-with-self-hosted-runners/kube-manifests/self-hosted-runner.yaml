@@ -1,0 +1,23 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: runner-deployment
+spec:
+  template:
+    spec:
+      repository: atingupta2005/Bosch-github-actions-training
+
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: runner-deployment-autoscaler
+spec:
+  scaleTargetRef:
+    name: runner-deployment
+  minReplicas: 1
+  maxReplicas: 50
+  metrics:
+  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+    repositoryNames:
+    - atingupta2005/Bosch-github-actions-training
